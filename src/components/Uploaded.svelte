@@ -45,7 +45,7 @@
     padding: 10px;
   }
   .Uploaded img {
-    width: 100%;
+    max-width: 100%;
     border-radius: 20px;
     margin-bottom: 10px;
   }

@@ -189,9 +189,9 @@
     color: #155724;
     background-color: #d4edda;
     border-color: #c3e6cb;
-    padding: .75rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     border: 1px solid transparent;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
   }
 </style>
 
@@ -206,7 +206,12 @@
     {:else if imageIsUploaded}
       <h3>✔ La imagen se ha subido con éxito.</h3>
       <Uploaded url={urlImageUploaded} name={imageName} />
-      <button class="btn_submit" on:click={()=>{imageIsUploaded=false}} >Nueva imagen</button>
+      <button
+        class="btn_submit"
+        on:click={() => {
+          imageIsUploaded = false;
+          files = null;
+        }}>Nueva imagen</button>
     {:else}
       <h1>Escoge la imagen a subir</h1>
       <p>
@@ -224,8 +229,8 @@
           {#if files && files[0]}
             {#if errorExtension}
               <p class="err_ext">
-                ❗ El archivo no cumple con los estándares, esto es pesar menos de
-                24MB o no ser un archivo del tipo imagen.
+                ❗ El archivo no cumple con los estándares, esto es pesar menos
+                de 24MB o no ser un archivo del tipo imagen.
               </p>
             {:else}
               <img
@@ -265,4 +270,3 @@
     {/if}
   </div>
 </div>
-{@html '<script type="text/javascript" src="https://unpkg.com/imagekit-javascript@1.3.0/dist/imagekit.min.js"></script>'}
